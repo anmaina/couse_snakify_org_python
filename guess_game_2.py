@@ -1,27 +1,29 @@
-# num = input()
-# stuff = input()
-num = 20
-stuff = {'2','5', '8', '10', '15', '14', '17'}
-yes_set, no_set, full_set = set(), set(), set()
-set_of_num = []
+n = int(input())
+possible = set(range(n))
+while True:
+  line = input()
+  if line == 'HELP':
+    break
+  guess = set([int(i) for i in line.split()])
+  if input() == 'YES':
+    possible &= guess
+  else:
+    possible -= guess
+print(*sorted(possible))
 
-def yes_no(stuff):
-    while stuff!='HELP':
-        set_of_num = stuff.split()
-        response = input()
-        if response=='YES':
-            for i in range(len(set_of_num)):
-                yes_set.add(set_of_num[i])
-                print (yes_set)
-        elif response == 'NO':
-            for i in range(len(set_of_num)):
-                no_set.add(set_of_num[i])
-                print (no_set)
-    stuff = input()
+# n = int(input())
+# all_nums = set(range(1, n + 1))
+# possible_nums = all_nums
+# while True:
+#     guess = input()
+#     if guess == 'HELP':
+#         break
+#     guess = {int(x) for x in guess.split()}
+#     answer = input()
+#     if answer == 'YES':
+#         possible_nums &= guess
+#     else:
+#         possible_nums &= all_nums - guess
 
-for i in range(1,num+1):
-    full_set.add(i)
-yes_no(stuff)
-result = yes_set&(full_set - no_set)
-print(result)
+# print(' '.join([str(x) for x in sorted(possible_nums)]))
         
