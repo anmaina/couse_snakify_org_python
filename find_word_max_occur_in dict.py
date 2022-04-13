@@ -17,3 +17,14 @@ list_of_keys = list(dic_sorted.keys())
 #print(list_of_keys)
 max_value = list_of_val.index(max(list_of_val))
 print(list_of_keys[max_value])
+
+# Model solution
+# counter = {}
+# for i in range(int(input())):
+#     line = input().split()
+#     for word in line:
+#         counter[word] = counter.get(word, 0) + 1
+        
+# max_count = max(counter.values())
+# most_frequent = [k for k, v in counter.items() if v == max_count]
+# print(min(most_frequent))
