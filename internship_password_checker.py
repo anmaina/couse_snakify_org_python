@@ -32,33 +32,39 @@ def check_length(password):
     else:
         return False
 
+password = input('Enter your password here: ')
 
-def print_conclusion():
-    a = check_item_digit(password)
-    b = check_item_lowercase_and_uppercase(password)
-    c = check_item_punctuation(password)
-    d = check_length(password)
-    if a == True and b == True and c == True and d == True:
-        print('Strong password')
+list_of_function_call = [
+    check_item_digit(password), 
+    check_item_lowercase_and_uppercase(password), 
+    check_item_punctuation(password),
+    check_length(password)]
+
+
+def rule_checker(list_of_function_call):
+    list_of_rules = [
+' - The password must contain at least one digit', 
+' - The password must contain both lowercase and uppercase characters',
+' - The password must contain at least one punctuation character ({})'.format(string.punctuation),
+' - The password must be at least 14 characters long']
+    list_of_checked_rules = []
+    for i in range(len(list_of_function_call)):
+        if list_of_function_call[i] is False:
+            list_of_checked_rules.append(list_of_rules[i])
+    return '\n'.join(list_of_checked_rules)
+
+
+def print_conclusion(password):
+    if all(list_of_function_call):
+        return 'Strong password'
     else:
         print('Weak password:')
-        if a != True:
-            print(' - The password must contain at least one digit')
-        if b != True:
-            print(' - The password must contain both lowercase and uppercase characters')
-        if c != True:
-            print(' - The password must contain at least one punctuation character ({})'.format(string.punctuation))
-        if d != True:
-            print(' - The password must be at least 14 characters long')
+        return rule_checker(list_of_function_call)
 
 
 if __name__ == '__main__':
-    password = input('Enter your password here: ')
-    print(print_conclusion())
+    print(print_conclusion(password))
 
-
-
-# initial code
 # import string
 
 # def password_checker(password):

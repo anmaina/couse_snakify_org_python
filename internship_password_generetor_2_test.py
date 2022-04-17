@@ -1,8 +1,18 @@
 import unittest
-import internship_password_checker as i
-import string
+import internship_password_generetor_2 as i
 
 class TestStringMethods(unittest.TestCase):
+
+#-----------------------------------------------------------------------------
+    def test_1password_generator(self):
+        self.assertTrue(i.password_generator())
+    
+    def test_2password_generator(self):
+        self.assertTrue(i.password_generator())
+
+    def test_3password_generator(self):
+        self.assertTrue(i.password_generator())
+#-----------------------------------------------------------------------------
 
     def test_1check_if_password_has_digit(self):
         assert i.check_item_digit('karamba666!') is True
@@ -56,42 +66,16 @@ class TestStringMethods(unittest.TestCase):
     
     def test_4check_item_for_check_length(self):
         assert i.check_length('*j$Tlaksi963897') is True
-#-------------------------------------------------------------------
-    def test_1check_password_for_rules(self):
-        expected_result = ' - The password must be at least 14 characters long'
-        actual_result = i.rule_checker([True, True, True, False])
-        self.assertEqual(actual_result, expected_result)
 
-    def test_2check_rule_cheker(self):
-        expected_result = ' - The password must contain at least one punctuation character ({})'.format(string.punctuation)
-        actual_result = i.rule_checker([True, True, False, True])
-        self.assertEqual(actual_result, expected_result)
-    
-    def test_3check_rule_cheker(self):
-        expected_result = ' - The password must contain both lowercase and uppercase characters'
-        actual_result = i.rule_checker([True, False, True, True])
-        self.assertEqual(actual_result, expected_result)
-    
-    def test_4check_rule_cheker(self):
-        expected_result = ' - The password must contain at least one digit'
-        actual_result = i.rule_checker([False, True, True, True])
-        self.assertEqual(actual_result, expected_result)
+#---------------------------------------------------------------------------------
 
-    def test_5check_rule_cheker(self):
-        expected_result = ' - The password must contain at least one digit' +'\n' + ' - The password must contain both lowercase and uppercase characters'
-        actual_result = i.rule_checker([False, False, True, True])
-        self.assertEqual(actual_result, expected_result)   
-    
-    def test_6check_rule_cheker(self):
-        expected_result = ' - The password must contain at least one digit' +'\n' + ' - The password must contain both lowercase and uppercase characters'
-        actual_result = i.rule_checker([False, False, False, False])
-        self.assertNotEqual(actual_result, expected_result) 
+    def test_1check_password(self):
+        self.assertTrue(i.password_output())
 
-#-----------------------------------------------------------------------------------------------
-    # def test_2check_rule_cheker(self):
-    #     expected_result = 'Strong password'
-    #     list_of_function_call = [True, True, True, True]
-    #     actual_result = i.rule_checker('kjKJjsidnfmncu***45yde98')
-    #     self.assertEqual(actual_result, expected_result)
+    def test_2check_password(self):
+        self.assertTrue(i.password_output())
+        
+    def test_2check_password(self):
+        self.assertTrue(i.password_output())
 if __name__ == '__main__':
     unittest.main()
